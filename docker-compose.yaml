@@ -6,7 +6,8 @@ services:
   web:
     image: web:v1
     container_name: web
-    depends_on:
+    ports:
+    - "80:80"
     - catalogue
   mongodb:
     image: mongodb:v1
