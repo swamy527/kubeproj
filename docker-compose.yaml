@@ -16,3 +16,11 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb  
+  user:
+    image: user:v1
+    container_name: user
+    depends_on:
+    - mongodb
+    - redis
+  redis:
+    image: redis
