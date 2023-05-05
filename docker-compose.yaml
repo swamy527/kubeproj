@@ -9,7 +9,11 @@ services:
     ports:
     - "80:80"
     depends_on:
-    - catalogue
+      - catalogue
+      - user
+      - cart
+      - shipping
+      - mysql
   mongodb:
     image: mongodb:v1
     container_name: mongodb
@@ -17,18 +21,26 @@ services:
     image: catalogue:v1
     container_name: catalogue
     depends_on:
-    - mongodb  
+      - mongodb  
   user:
     image: user:v1
     container_name: user
     depends_on:
-    - mongodb
-    - redis
+      - mongodb
+      - redis
   redis:
     image: redis
   cart:
     image: cart:v1
     container_name: cart
     depends_on:
-    - redis
-    - catalogue
+      - redis
+      - catalogue
+  mysql:
+    image: mysql:v1
+    container_name: mysql
+  shipping:
+    image: shipping:v1
+    container_name: shipping:v1
+    depends_on:
+      - mysql
