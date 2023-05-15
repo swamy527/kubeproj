@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: cart-config
 data:
-  CATALOGUE_HOST: "http://catalogue"
+  CATALOGUE_HOST: "http://catalogue/"
   REDIS_HOST: "redis"
 ---
 apiVersion: v1
